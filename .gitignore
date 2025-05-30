@@ -1,0 +1,23 @@
+# Root node modules (if any)
+node_modules/
+
+# Client
+client/node_modules/
+client/build/
+client/.env*
+client/coverage/
+
+# Server
+server/node_modules/
+server/build/
+server/dist/
+server/.env*
+server/coverage/
+
+# Logs
+*.log
+logs/
+
+# System files
+.DS_Store
+Thumbs.db
