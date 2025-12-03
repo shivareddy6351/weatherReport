@@ -54,7 +54,28 @@ now dashboard + for pipeline for build project
 
 SCRIPTED PIPELINE
 new item crete piple line paste script and select build now
-select comfigure build triggers build peridocally 5 stars 
+select comfigure build triggers build peridocally 5 stars
+CODE-
+node {
+
+    stage('Clone Repository') {
+        echo "Cloning ORS GitHub repository..."
+        git branch: 'main',
+            url: 'https://github.com/ssvkotamraju/ORS.git'
+    }
+
+    stage('Build & Test') {
+        echo "Building project with Maven..."
+        sh "mvn clean package"
+    }
+
+    stage('Archive Artifacts') {
+        echo "Archiving build artifacts..."
+        archiveArtifacts artifacts: 'target/*.war', fingerprint: true
+    }
+
+}
+
 
 MINIKUBE
 # practice-2
